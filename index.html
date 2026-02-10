@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Right Triangle Trigonometry - Introduction</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .slide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        section {
+            background: white;
+            margin: 20px 0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            page-break-after: always;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+        h2 {
+            color: #1a5490;
+            font-size: 2.5em;
+            margin-top: 0;
+            border-bottom: 4px solid #1a5490;
+            padding-bottom: 15px;
+        }
+        h3 {
+            color: #2d70b3;
+            font-size: 1.8em;
+            margin-top: 20px;
+        }
+        h4 {
+            color: #2d70b3;
+            font-size: 1.4em;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        p, li {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #333;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        .key-point {
+            background: #e3f2fd;
+            border-left: 5px solid #1a5490;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .definition {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .formula-box {
+            background: #f1f8e9;
+            border: 2px solid #558b2f;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.3em;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        .svg-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+        .example-box {
+            background: #fce4ec;
+            border: 2px solid #c2185b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+            section {
+                box-shadow: none;
+                margin: 0;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Slide 1: Title -->
+        <section>
+            <div class="content">
+                <h2 style="text-align: center; font-size: 3em;">Non-Right Triangle Trigonometry</h2>
+                <h3 style="text-align: center; color: #2d70b3; margin-top: 40px;">Part 1: Foundations</h3>
+                <ul style="font-size: 1.4em; margin-top: 60px;">
+                    <li>The Unit Circle</li>
+                    <li>Area of a Triangle</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 2: Learning Objectives - Unit Circle -->
+        <section>
+            <h2>Learning Objectives: The Unit Circle</h2>
+            <div class="content">
+                <p>By the end of this section, you will be able to:</p>
+                <ul>
+                    <li>Define the unit circle and understand its equation \(x^2 + y^2 = 1\)</li>
+                    <li>Understand how angles are measured on the unit circle (positive for anticlockwise, negative for clockwise)</li>
+                    <li>Define sine and cosine using the unit circle for any angle</li>
+                    <li>Recognize that \(-1 \leq \cos\theta \leq 1\) and \(-1 \leq \sin\theta \leq 1\)</li>
+                    <li>Apply the Pythagorean identity: \(\cos^2\theta + \sin^2\theta = 1\)</li>
+                    <li>Use supplementary angle relationships:
+                        <ul>
+                            <li>\(\cos(180° - \theta) = -\cos\theta\)</li>
+                            <li>\(\sin(180° - \theta) = \sin\theta\)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 3: What is the Unit Circle? -->
+        <section>
+            <h2>What is the Unit Circle?</h2>
+            <div class="content">
+                <div class="definition">
+                    <p><strong>Definition:</strong> The <strong>unit circle</strong> is the circle with centre \((0, 0)\) and radius 1 unit.</p>
+                </div>
+                
+                <div class="svg-container">
+                    <svg width="500" height="500" viewBox="-300 -300 600 600">
+                        <!-- Axes -->
+                        <line x1="-280" y1="0" x2="280" y2="0" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <line x1="0" y1="280" x2="0" y2="-280" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        
+                        <!-- Arrow markers -->
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- Grid lines -->
+                        <circle cx="0" cy="0" r="200" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+                        
+                        <!-- Unit circle -->
+                        <circle cx="0" cy="0" r="200" fill="none" stroke="#1a5490" stroke-width="3"/>
+                        
+                        <!-- Center point -->
+                        <circle cx="0" cy="0" r="4" fill="#1a5490"/>
+                        
+                        <!-- Radius label -->
+                        <line x1="0" y1="0" x2="141.4" y2="-141.4" stroke="#c74440" stroke-width="2"/>
+                        <text x="80" y="-80" fill="#c74440" font-size="20" font-weight="bold">r = 1</text>
+                        
+                        <!-- Point on circle -->
+                        <circle cx="141.4" cy="-141.4" r="5" fill="#c74440"/>
+                        <text x="160" y="-145" fill="#333" font-size="20">(x, y)</text>
+                        
+                        <!-- Origin label -->
+                        <text x="-25" y="25" fill="#333" font-size="20">O (0,0)</text>
+                        
+                        <!-- Axis labels -->
+                        <text x="260" y="25" fill="#666" font-size="20">x</text>
+                        <text x="10" y="-260" fill="#666" font-size="20">y</text>
+                    </svg>
+                </div>
+
+                <div class="formula-box">
+                    <p><strong>Equation of the Unit Circle:</strong></p>
+                    <p>\[x^2 + y^2 = 1\]</p>
+                    <p style="font-size: 0.9em; margin-top: 15px;">This comes from the distance formula: any point \((x, y)\) on the circle is exactly 1 unit from the origin.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Angle Measurement on the Unit Circle -->
+        <section>
+            <h2>Angle Measurement on the Unit Circle</h2>
+            <div class="content">
+                <p>Angles on the unit circle are measured from the positive x-axis.</p>
+                
+                <div class="key-point">
+                    <p><strong>Convention for Angle Direction:</strong></p>
+                    <ul>
+                        <li><strong>Positive angles:</strong> measured anticlockwise (counterclockwise)</li>
+                        <li><strong>Negative angles:</strong> measured clockwise</li>
+                    </ul>
+                </div>
+
+                <div class="two-column">
+                    <div class="svg-container">
+                        <h4 style="text-align: center;">Positive Angle (Anticlockwise)</h4>
+                        <svg width="350" height="350" viewBox="-200 -200 400 400">
+                            <!-- Axes -->
+                            <line x1="-180" y1="0" x2="180" y2="0" stroke="#666" stroke-width="2" marker-end="url(#arrowhead2)"/>
+                            <line x1="0" y1="180" x2="0" y2="-180" stroke="#666" stroke-width="2" marker-end="url(#arrowhead2)"/>
+                            
+                            <defs>
+                                <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+                                </marker>
+                            </defs>
+                            
+                            <!-- Unit circle -->
+                            <circle cx="0" cy="0" r="150" fill="none" stroke="#1a5490" stroke-width="2"/>
+                            
+                            <!-- Initial ray (positive x-axis) -->
+                            <line x1="0" y1="0" x2="150" y2="0" stroke="#2d70b3" stroke-width="2"/>
+                            <text x="155" y="5" fill="#2d70b3" font-size="18">A(1,0)</text>
+                            
+                            <!-- Terminal ray -->
+                            <line x1="0" y1="0" x2="75" y2="-130" stroke="#c74440" stroke-width="2"/>
+                            <circle cx="75" cy="-130" r="4" fill="#c74440"/>
+                            <text x="85" y="-135" fill="#c74440" font-size="18">P</text>
+                            
+                            <!-- Angle arc -->
+                            <path d="M 50,0 A 50,50 0 0,0 25,-43" fill="none" stroke="#ff9800" stroke-width="2"/>
+                            <text x="45" y="-15" fill="#ff9800" font-size="20" font-weight="bold">θ</text>
+                            
+                            <!-- Curved arrow showing direction -->
+                            <path d="M 100,-30 A 60,60 0 0,0 100,-10" fill="none" stroke="#ff9800" stroke-width="2" marker-end="url(#arrowhead3)"/>
+                            <defs>
+                                <marker id="arrowhead3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#ff9800"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                    
+                    <div class="svg-container">
+                        <h4 style="text-align: center;">Negative Angle (Clockwise)</h4>
+                        <svg width="350" height="350" viewBox="-200 -200 400 400">
+                            <!-- Axes -->
+                            <line x1="-180" y1="0" x2="180" y2="0" stroke="#666" stroke-width="2" marker-end="url(#arrowhead4)"/>
+                            <line x1="0" y1="180" x2="0" y2="-180" stroke="#666" stroke-width="2" marker-end="url(#arrowhead4)"/>
+                            
+                            <defs>
+                                <marker id="arrowhead4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+                                </marker>
+                            </defs>
+                            
+                            <!-- Unit circle -->
+                            <circle cx="0" cy="0" r="150" fill="none" stroke="#1a5490" stroke-width="2"/>
+                            
+                            <!-- Initial ray (positive x-axis) -->
+                            <line x1="0" y1="0" x2="150" y2="0" stroke="#2d70b3" stroke-width="2"/>
+                            <text x="155" y="5" fill="#2d70b3" font-size="18">A(1,0)</text>
+                            
+                            <!-- Terminal ray -->
+                            <line x1="0" y1="0" x2="75" y2="130" stroke="#c74440" stroke-width="2"/>
+                            <circle cx="75" cy="130" r="4" fill="#c74440"/>
+                            <text x="85" y="135" fill="#c74440" font-size="18">P</text>
+                            
+                            <!-- Angle arc -->
+                            <path d="M 50,0 A 50,50 0 0,1 25,43" fill="none" stroke="#ff9800" stroke-width="2"/>
+                            <text x="45" y="20" fill="#ff9800" font-size="20" font-weight="bold">-θ</text>
+                            
+                            <!-- Curved arrow showing direction -->
+                            <path d="M 100,10 A 60,60 0 0,1 100,30" fill="none" stroke="#ff9800" stroke-width="2" marker-end="url(#arrowhead5)"/>
+                            <defs>
+                                <marker id="arrowhead5" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#ff9800"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Definition of Sine and Cosine -->
+        <section>
+            <h2>Definition of Sine and Cosine</h2>
+            <div class="content">
+                <p>In Chapter 7, we learned trigonometric ratios for acute angles in right triangles. Now we extend these definitions to any angle using the unit circle.</p>
+                
+                <div class="svg-container">
+                    <svg width="600" height="500" viewBox="-100 -300 600 500">
+                        <!-- Unit circle -->
+                        <circle cx="200" cy="0" r="200" fill="none" stroke="#1a5490" stroke-width="3"/>
+                        
+                        <!-- Axes -->
+                        <line x1="0" y1="0" x2="400" y2="0" stroke="#666" stroke-width="2" marker-end="url(#arrowhead6)"/>
+                        <line x1="200" y1="200" x2="200" y2="-200" stroke="#666" stroke-width="2" marker-end="url(#arrowhead6)"/>
+                        
+                        <defs>
+                            <marker id="arrowhead6" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- Point P -->
+                        <circle cx="341.4" cy="-141.4" r="5" fill="#c74440"/>
+                        <text x="355" y="-145" fill="#c74440" font-size="20" font-weight="bold">P(a, b)</text>
+                        
+                        <!-- Line OP -->
+                        <line x1="200" y1="0" x2="341.4" y2="-141.4" stroke="#c74440" stroke-width="2"/>
+                        
+                        <!-- Vertical line from P to x-axis -->
+                        <line x1="341.4" y1="0" x2="341.4" y2="-141.4" stroke="#2d70b3" stroke-width="2" stroke-dasharray="5,5"/>
+                        
+                        <!-- Horizontal line (x-coordinate) -->
+                        <line x1="200" y1="0" x2="341.4" y2="0" stroke="#388e3c" stroke-width="2"/>
+                        <text x="270" y="25" fill="#388e3c" font-size="18" font-weight="bold">a</text>
+                        
+                        <!-- Vertical coordinate label -->
+                        <text x="350" y="-70" fill="#2d70b3" font-size="18" font-weight="bold">b</text>
+                        
+                        <!-- Angle -->
+                        <path d="M 250,0 A 50,50 0 0,0 235.4,-20.7" fill="none" stroke="#ff9800" stroke-width="2"/>
+                        <text x="260" y="-5" fill="#ff9800" font-size="22" font-weight="bold">θ</text>
+                        
+                        <!-- Right triangle -->
+                        <path d="M 341.4,0 L 341.4,-10 L 351.4,-10 L 351.4,0" fill="none" stroke="#2d70b3" stroke-width="1.5"/>
+                        
+                        <!-- Labels for triangle sides -->
+                        <text x="295" y="-75" fill="#c74440" font-size="16">HYP = 1</text>
+                        <text x="225" y="-70" fill="#388e3c" font-size="16">ADJ</text>
+                        <text x="360" y="-60" fill="#2d70b3" font-size="16">OPP</text>
+                        
+                        <!-- Axis labels -->
+                        <text x="420" y="10" fill="#666" font-size="20">x</text>
+                        <text x="210" y="-210" fill="#666" font-size="20">y</text>
+                        <text x="195" y="20" fill="#666" font-size="18">O</text>
+                    </svg>
+                </div>
+
+                <div class="definition">
+                    <p><strong>Definition Using Right Triangle Trigonometry:</strong></p>
+                    <p>For a point \(P(a, b)\) on the unit circle in the first quadrant:</p>
+                    <p>\[\cos\theta = \frac{\text{ADJ}}{\text{HYP}} = \frac{a}{1} = a\]</p>
+                    <p>\[\sin\theta = \frac{\text{OPP}}{\text{HYP}} = \frac{b}{1} = b\]</p>
+                </div>
+
+                <div class="key-point">
+                    <p><strong>General Definition for ANY Angle:</strong></p>
+                    <p>If \(P\) is any point on the unit circle such that [OP] makes an angle \(\theta\) measured anticlockwise from the positive x-axis:</p>
+                    <ul>
+                        <li><strong>\(\cos\theta\)</strong> is the <strong>x-coordinate</strong> of P</li>
+                        <li><strong>\(\sin\theta\)</strong> is the <strong>y-coordinate</strong> of P</li>
+                    </ul>
+                    <p style="text-align: center; font-size: 1.2em; margin-top: 15px;">So we can write: \(P(\cos\theta, \sin\theta)\)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Properties of Sine and Cosine -->
+        <section>
+            <h2>Important Properties from the Unit Circle</h2>
+            <div class="content">
+                <h4>Property 1: Range of Sine and Cosine</h4>
+                <p>Since all points on the unit circle have coordinates \((x, y)\) where \(-1 \leq x \leq 1\) and \(-1 \leq y \leq 1\):</p>
+                
+                <div class="formula-box">
+                    <p><strong>For any angle \(\theta\):</strong></p>
+                    <p>\[-1 \leq \cos\theta \leq 1\]</p>
+                    <p>\[-1 \leq \sin\theta \leq 1\]</p>
+                </div>
+
+                <h4>Property 2: The Pythagorean Identity</h4>
+                <p>Since every point \((x, y)\) on the unit circle satisfies the equation \(x^2 + y^2 = 1\), and we know that \(x = \cos\theta\) and \(y = \sin\theta\):</p>
+                
+                <div class="formula-box">
+                    <p><strong>The Pythagorean Identity:</strong></p>
+                    <p>\[\cos^2\theta + \sin^2\theta = 1\]</p>
+                    <p style="font-size: 0.9em; margin-top: 15px;">This is true for <strong>any</strong> angle \(\theta\)</p>
+                </div>
+
+                <div class="key-point">
+                    <p><strong>Why is this useful?</strong></p>
+                    <p>This identity allows us to:</p>
+                    <ul>
+                        <li>Find \(\sin\theta\) if we know \(\cos\theta\) (or vice versa)</li>
+                        <li>Verify our calculations</li>
+                        <li>Simplify trigonometric expressions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Supplementary Angles -->
+        <section>
+            <h2>Supplementary Angles</h2>
+            <div class="content">
+                <div class="definition">
+                    <p><strong>Definition:</strong> Two angles are <strong>supplementary</strong> if their sum is \(180°\).</p>
+                    <p>Example: \(60°\) and \(120°\) are supplementary because \(60° + 120° = 180°\)</p>
+                </div>
+
+                <p>When we have an angle \(\theta\) and its supplement \((180° - \theta)\), there is a special relationship between their sine and cosine values.</p>
+
+                <div class="svg-container">
+                    <svg width="700" height="450" viewBox="-350 -250 700 450">
+                        <!-- Unit circle -->
+                        <circle cx="0" cy="0" r="200" fill="none" stroke="#1a5490" stroke-width="3"/>
+                        
+                        <!-- Axes -->
+                        <line x1="-250" y1="0" x2="250" y2="0" stroke="#666" stroke-width="2" marker-end="url(#arrowhead7)"/>
+                        <line x1="0" y1="220" x2="0" y2="-220" stroke="#666" stroke-width="2" marker-end="url(#arrowhead7)"/>
+                        
+                        <defs>
+                            <marker id="arrowhead7" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- Point P (angle θ) -->
+                        <circle cx="141.4" cy="-141.4" r="5" fill="#c74440"/>
+                        <text x="155" y="-145" fill="#c74440" font-size="18" font-weight="bold">P(cos θ, sin θ)</text>
+                        <line x1="0" y1="0" x2="141.4" y2="-141.4" stroke="#c74440" stroke-width="2"/>
+                        
+                        <!-- Point P' (angle 180° - θ) -->
+                        <circle cx="-141.4" cy="-141.4" r="5" fill="#2d70b3"/>
+                        <text x="-280" y="-145" fill="#2d70b3" font-size="18" font-weight="bold">P'(-cos θ, sin θ)</text>
+                        <line x1="0" y1="0" x2="-141.4" y2="-141.4" stroke="#2d70b3" stroke-width="2"/>
+                        
+                        <!-- Angle θ -->
+                        <path d="M 70,0 A 70,70 0 0,0 49.5,-49.5" fill="none" stroke="#c74440" stroke-width="2"/>
+                        <text x="80" y="-15" fill="#c74440" font-size="20" font-weight="bold">θ</text>
+                        
+                        <!-- Angle 180° - θ -->
+                        <path d="M -70,0 A 70,70 0 0,1 -49.5,-49.5" fill="none" stroke="#2d70b3" stroke-width="2"/>
+                        <text x="-95" y="-15" fill="#2d70b3" font-size="18" font-weight="bold">180°-θ</text>
+                        
+                        <!-- Vertical dashed lines -->
+                        <line x1="141.4" y1="0" x2="141.4" y2="-141.4" stroke="#c74440" stroke-width="1" stroke-dasharray="5,5"/>
+                        <line x1="-141.4" y1="0" x2="-141.4" y2="-141.4" stroke="#2d70b3" stroke-width="1" stroke-dasharray="5,5"/>
+                        
+                        <!-- y-axis label showing same height -->
+                        <line x1="-5" y1="-141.4" x2="5" y2="-141.4" stroke="#388e3c" stroke-width="3"/>
+                        <text x="15" y="-135" fill="#388e3c" font-size="18" font-weight="bold">sin θ = sin(180° - θ)</text>
+                        
+                        <!-- x-coordinates -->
+                        <text x="125" y="25" fill="#c74440" font-size="16">cos θ</text>
+                        <text x="-160" y="25" fill="#2d70b3" font-size="16">-cos θ</text>
+                        
+                        <!-- Reflection indicator -->
+                        <text x="-50" y="100" fill="#666" font-size="16" style="font-style: italic;">P' is reflection of P in y-axis</text>
+                    </svg>
+                </div>
+
+                <div class="formula-box">
+                    <p><strong>Supplementary Angle Relationships:</strong></p>
+                    <p>\[\cos(180° - \theta) = -\cos\theta\]</p>
+                    <p>\[\sin(180° - \theta) = \sin\theta\]</p>
+                    <p style="font-size: 0.9em; margin-top: 15px;">Notice: The sine values are <strong>equal</strong>, but the cosine values are <strong>opposite</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Unit Circle Practice -->
+        <section>
+            <h2>Practice: Unit Circle (Exercise 8A)</h2>
+            <div class="content">
+                <h4>Question 1: Complete the table</h4>
+                <p>Use your calculator to complete the following table, giving answers correct to four decimal places. Then verify the supplementary angle relationships.</p>
+                
+                <div style="overflow-x: auto; margin: 20px 0;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 1.1em;">
+                        <thead style="background: #1a5490; color: white;">
+                            <tr>
+                                <th style="border: 2px solid #333; padding: 12px;">\(\theta\)</th>
+                                <th style="border: 2px solid #333; padding: 12px;">\(\cos\theta\)</th>
+                                <th style="border: 2px solid #333; padding: 12px;">\(\sin\theta\)</th>
+                                <th style="border: 2px solid #333; padding: 12px;">\(\cos(180° - \theta)\)</th>
+                                <th style="border: 2px solid #333; padding: 12px;">\(\sin(180° - \theta)\)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 2px solid #333; padding: 12px; text-align: center;">\(12°\)</td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 2px solid #333; padding: 12px; text-align: center;">\(25°\)</td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 2px solid #333; padding: 12px; text-align: center;">\(38°\)</td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 2px solid #333; padding: 12px; text-align: center;">\(56°\)</td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 2px solid #333; padding: 12px; text-align: center;">\(70°\)</td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 2px solid #333; padding: 12px; text-align: center;">\(85°\)</td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                                <td style="border: 2px solid #333; padding: 12px; background: #f0f0f0;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>For each value of \(\theta\), check that:</p>
+                <ul>
+                    <li>\(\cos^2\theta + \sin^2\theta = 1\)</li>
+                    <li>\(\cos(180° - \theta) = -\cos\theta\)</li>
+                    <li>\(\sin(180° - \theta) = \sin\theta\)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 9: More Unit Circle Practice -->
+        <section>
+            <h2>Practice: Unit Circle (Exercise 8A)</h2>
+            <div class="content">
+                <h4>Question 2: Find coordinates on the unit circle</h4>
+                <div class="svg-container">
+                    <svg width="500" height="500" viewBox="-250 -250 500 500">
+                        <!-- Unit circle -->
+                        <circle cx="0" cy="0" r="200" fill="none" stroke="#1a5490" stroke-width="3"/>
+                        
+                        <!-- Axes -->
+                        <line x1="-220" y1="0" x2="220" y2="0" stroke="#666" stroke-width="2" marker-end="url(#arrowhead8)"/>
+                        <line x1="0" y1="220" x2="0" y2="-220" stroke="#666" stroke-width="2" marker-end="url(#arrowhead8)"/>
+                        
+                        <defs>
+                            <marker id="arrowhead8" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- Point Q at 140° -->
+                        <circle cx="-153.2" cy="128.6" r="5" fill="#c74440"/>
+                        <text x="-180" y="150" fill="#c74440" font-size="20" font-weight="bold">Q</text>
+                        <line x1="0" y1="0" x2="-153.2" y2="128.6" stroke="#c74440" stroke-width="2"/>
+                        <path d="M 60,0 A 60,60 0 0,0 -46,38.6" fill="none" stroke="#c74440" stroke-width="2"/>
+                        <text x="-10" y="30" fill="#c74440" font-size="18">140°</text>
+                        
+                        <!-- Point P at 52° -->
+                        <circle cx="123.4" cy="157.4" r="5" fill="#2d70b3"/>
+                        <text x="135" y="175" fill="#2d70b3" font-size="20" font-weight="bold">P</text>
+                        <line x1="0" y1="0" x2="123.4" y2="157.4" stroke="#2d70b3" stroke-width="2"/>
+                        <path d="M 80,0 A 80,80 0 0,0 49.4,63" fill="none" stroke="#2d70b3" stroke-width="2"/>
+                        <text x="75" y="30" fill="#2d70b3" font-size="18">52°</text>
+                        
+                        <!-- Origin -->
+                        <circle cx="0" cy="0" r="3" fill="#333"/>
+                        <text x="10" y="20" fill="#333" font-size="16">O</text>
+                        
+                        <!-- Axis labels -->
+                        <text x="210" y="20" fill="#666" font-size="18">x</text>
+                        <text x="10" y="-210" fill="#666" font-size="18">y</text>
+                        
+                        <!-- 1 and -1 markers -->
+                        <text x="205" y="-10" fill="#666" font-size="16">1</text>
+                        <text x="-215" y="-10" fill="#666" font-size="16">-1</text>
+                    </svg>
+                </div>
+                <p>Use your calculator to find the coordinates of P and Q, rounded to 3 decimal places.</p>
+
+                <h4>Questions 3-6: Supplementary Angle Relationships</h4>
+                <div class="two-column">
+                    <div>
+                        <p><strong>Q3:</strong> Find the obtuse angle which has the same sine as:</p>
+                        <ul>
+                            <li>a) \(45°\)</li>
+                            <li>b) \(50°\)</li>
+                            <li>c) \(18°\)</li>
+                            <li>d) \(71°\)</li>
+                        </ul>
+                        
+                        <p><strong>Q4:</strong> Find the acute angle which has the same sine as:</p>
+                        <ul>
+                            <li>a) \(103°\)</li>
+                            <li>b) \(119°\)</li>
+                            <li>c) \(126°\)</li>
+                            <li>d) \(155°\)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p><strong>Q5:</strong> Find the obtuse angle whose cosine is the negative of:</p>
+                        <ul>
+                            <li>a) \(\cos 3°\)</li>
+                            <li>b) \(\cos 22°\)</li>
+                            <li>c) \(\cos 47°\)</li>
+                            <li>d) \(\cos 63°\)</li>
+                        </ul>
+                        
+                        <p><strong>Q6:</strong> Find the acute angle whose cosine is the negative of:</p>
+                        <ul>
+                            <li>a) \(\cos 95°\)</li>
+                            <li>b) \(\cos 102°\)</li>
+                            <li>c) \(\cos 146°\)</li>
+                            <li>d) \(\cos 162°\)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: Learning Objectives - Area of Triangle -->
+        <section>
+            <h2>Learning Objectives: Area of a Triangle</h2>
+            <div class="content">
+                <p>By the end of this section, you will be able to:</p>
+                <ul>
+                    <li>Recall the basic area formula for triangles: Area \(= \frac{1}{2} \times \text{base} \times \text{height}\)</li>
+                    <li>Understand the standard labeling convention for triangles</li>
+                    <li>Derive the area formula for triangles when two sides and the included angle are known</li>
+                    <li>Apply the formula: Area \(= \frac{1}{2}ab\sin C\) (and its variations)</li>
+                    <li>Understand why this formula works for both acute and obtuse triangles</li>
+                    <li>Solve problems involving:
+                        <ul>
+                            <li>Finding areas of triangles given two sides and an included angle</li>
+                            <li>Finding a side or angle given the area and other information</li>
+                            <li>Finding areas of special triangles (isosceles, equilateral)</li>
+                            <li>Finding areas of other shapes (parallelograms, rhombuses) using triangles</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 11: Review - Basic Area Formula -->
+        <section>
+            <h2>Review: Basic Area Formula for Triangles</h2>
+            <div class="content">
+                <p>You already know that the area of a triangle is:</p>
+                
+                <div class="formula-box">
+                    <p>\[\text{Area} = \frac{1}{2} \times \text{base} \times \text{height}\]</p>
+                </div>
+
+                <div class="svg-container">
+                    <svg width="600" height="350" viewBox="0 0 600 350">
+                        <!-- Triangle -->
+                        <polygon points="100,300 500,300 300,80" fill="none" stroke="#1a5490" stroke-width="3"/>
+                        
+                        <!-- Height line -->
+                        <line x1="300" y1="80" x2="300" y2="300" stroke="#c74440" stroke-width="2" stroke-dasharray="5,5"/>
+                        
+                        <!-- Right angle marker -->
+                        <path d="M 300,300 L 300,290 L 310,290 L 310,300" fill="none" stroke="#c74440" stroke-width="1.5"/>
+                        
+                        <!-- Base label -->
+                        <line x1="100" y1="320" x2="500" y2="320" stroke="#2d70b3" stroke-width="2"/>
+                        <line x1="100" y1="315" x2="100" y2="325" stroke="#2d70b3" stroke-width="2"/>
+                        <line x1="500" y1="315" x2="500" y2="325" stroke="#2d70b3" stroke-width="2"/>
+                        <text x="280" y="345" fill="#2d70b3" font-size="22" font-weight="bold">base</text>
+                        
+                        <!-- Height label -->
+                        <text x="240" y="190" fill="#c74440" font-size="22" font-weight="bold">height</text>
+                        
+                        <!-- Vertices -->
+                        <circle cx="100" cy="300" r="4" fill="#1a5490"/>
+                        <circle cx="500" cy="300" r="4" fill="#1a5490"/>
+                        <circle cx="300" cy="80" r="4" fill="#1a5490"/>
+                    </svg>
+                </div>
+
+                <div class="key-point">
+                    <p><strong>The Problem:</strong> What if we don't know the perpendicular height?</p>
+                    <p>Sometimes we only know:</p>
+                    <ul>
+                        <li>Two sides of a triangle</li>
+                        <li>The angle between those two sides (the <strong>included angle</strong>)</li>
+                    </ul>
+                    <p>In these cases, we can use <strong>trigonometry</strong> to find the area!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 12: Triangle Labeling Convention -->
+        <section>
+            <h2>Triangle Labeling Convention</h2>
+            <div class="content">
+                <p>Before we derive the area formula, we need to establish a standard way of labeling triangles.</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; align-items: center;">
+                    <div class="svg-container">
+                        <svg width="100%" height="500" viewBox="0 0 600 500">
+                            <!-- Triangle -->
+                            <polygon points="100,400 500,400 200,100" fill="none" stroke="#1a5490" stroke-width="4"/>
+                            
+                            <!-- Vertices -->
+                            <circle cx="100" cy="400" r="5" fill="#c74440"/>
+                            <circle cx="500" cy="400" r="5" fill="#c74440"/>
+                            <circle cx="200" cy="100" r="5" fill="#c74440"/>
+                            
+                            <!-- Vertex labels (OUTSIDE) -->
+                            <text x="70" y="430" fill="#c74440" font-size="36" font-weight="bold">A</text>
+                            <text x="520" y="430" fill="#c74440" font-size="36" font-weight="bold">B</text>
+                            <text x="175" y="75" fill="#c74440" font-size="36" font-weight="bold">C</text>
+                            
+                            <!-- Angle labels (INSIDE) -->
+                            <text x="120" y="380" fill="#ff9800" font-size="32" font-weight="bold" style="font-style: italic;">A</text>
+                            <text x="465" y="380" fill="#ff9800" font-size="32" font-weight="bold" style="font-style: italic;">B</text>
+                            <text x="195" y="145" fill="#ff9800" font-size="32" font-weight="bold" style="font-style: italic;">C</text>
+                            
+                            <!-- Side labels (opposite to vertices) -->
+                            <!-- Side a (opposite to A) -->
+                            <text x="365" y="235" fill="#2d70b3" font-size="32" font-weight="bold" style="font-style: italic;">a</text>
+                            
+                            <!-- Side b (opposite to B) -->
+                            <text x="130" y="235" fill="#2d70b3" font-size="32" font-weight="bold" style="font-style: italic;">b</text>
+                            
+                            <!-- Side c (opposite to C) -->
+                            <text x="290" y="445" fill="#2d70b3" font-size="32" font-weight="bold" style="font-style: italic;">c</text>
+                        </svg>
+                    </div>
+                    
+                    <div>
+                        <div class="definition">
+                            <p><strong>Convention for Labeling Triangles:</strong></p>
+                            <p>For triangle ABC:</p>
+                            <ul>
+                                <li>The angles at vertices A, B, and C are labeled \(A\), \(B\), and \(C\) respectively</li>
+                                <li>The sides <strong>opposite</strong> these angles are labeled \(a\), \(b\), and \(c\) respectively</li>
+                            </ul>
+                        </div>
+
+                        <div class="key-point" style="margin-top: 30px;">
+                            <p><strong>Key Correspondences:</strong></p>
+                            <ul>
+                                <li>Angle \(A\) is opposite side \(a\)</li>
+                                <li>Angle \(B\) is opposite side \(b\)</li>
+                                <li>Angle \(C\) is opposite side \(c\)</li>
+                            </ul>
+                        </div>
+
+                        <div style="background: #e8f5e9; border-left: 5px solid #388e3c; padding: 20px; margin-top: 30px; border-radius: 5px;">
+                            <p style="font-size: 1.1em;"><strong>Key Pattern:</strong> Each angle and its opposite side have the same letter!</p>
+                            <p style="font-size: 1.0em; margin-top: 10px;">This convention makes it easy to write formulas that work for any triangle.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 13: Deriving the Area Formula - Acute Case -->
+        <section>
+            <h2>Deriving the Area Formula: Acute Triangles</h2>
+            <div class="content">
+                <p>Let's derive a formula for the area when we know two sides and the included angle.</p>
+                <p><strong>Case 1: Acute Triangle</strong></p>
+
+                <div class="svg-container">
+                    <svg width="700" height="400" viewBox="0 0 700 400">
+                        <!-- Triangle ABC -->
+                        <polygon points="100,320 600,320 300,100" fill="none" stroke="#1a5490" stroke-width="3"/>
+                        
+                        <!-- Height from A to BC -->
+                        <line x1="300" y1="100" x2="300" y2="320" stroke="#c74440" stroke-width="2" stroke-dasharray="5,5"/>
+                        
+                        <!-- Right angle marker at D -->
+                        <path d="M 300,320 L 300,310 L 310,310 L 310,320" fill="none" stroke="#c74440" stroke-width="1.5"/>
+                        
+                        <!-- Vertices -->
+                        <circle cx="100" cy="320" r="4" fill="#1a5490"/>
+                        <circle cx="600" cy="320" r="4" fill="#1a5490"/>
+                        <circle cx="300" cy="100" r="4" fill="#1a5490"/>
+                        <circle cx="300" cy="320" r="4" fill="#c74440"/>
+                        
+                        <!-- Labels -->
+                        <text x="70" y="345" fill="#1a5490" font-size="28" font-weight="bold">B</text>
+                        <text x="615" y="345" fill="#1a5490" font-size="28" font-weight="bold">C</text>
+                        <text x="280" y="75" fill="#1a5490" font-size="28" font-weight="bold">A</text>
+                        <text x="305" y="345" fill="#c74440" font-size="24" font-weight="bold">D</text>
+                        
+                        <!-- Side labels -->
+                        <text x="190" y="195" fill="#2d70b3" font-size="24" font-weight="bold">c</text>
+                        <text x="460" y="195" fill="#2d70b3" font-size="24" font-weight="bold">b</text>
+                        <text x="340" y="350" fill="#2d70b3" font-size="24" font-weight="bold">a</text>
+                        
+                        <!-- Height h -->
+                        <text x="260" y="210" fill="#c74440" font-size="24" font-weight="bold">h</text>
+                        
+                        <!-- Angle C -->
+                        <path d="M 570,320 A 30,30 0 0,0 548,305" fill="none" stroke="#ff9800" stroke-width="2"/>
+                        <text x="550" y="305" fill="#ff9800" font-size="24" font-weight="bold">C</text>
+                    </svg>
+                </div>
+
+                <div class="formula-box" style="text-align: left; padding: 30px;">
+                    <p><strong>Step 1:</strong> We know that Area \(= \frac{1}{2} \times \text{base} \times \text{height}\)</p>
+                    <p style="margin-left: 40px;">Using base = \(a\) and height = \(h\):</p>
+                    <p style="margin-left: 40px; font-size: 1.2em;">\[\text{Area} = \frac{1}{2}ah\]</p>
+                    
+                    <p style="margin-top: 25px;"><strong>Step 2:</strong> Find \(h\) using trigonometry in the right triangle ACD:</p>
+                    <p style="margin-left: 40px;">\[\sin C = \frac{h}{b}\]</p>
+                    <p style="margin-left: 40px;">Therefore: \[h = b\sin C\]</p>
+                    
+                    <p style="margin-top: 25px;"><strong>Step 3:</strong> Substitute into the area formula:</p>
+                    <p style="margin-left: 40px; font-size: 1.3em; color: #c74440;">\[\text{Area} = \frac{1}{2}ab\sin C\]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 14: Deriving the Area Formula - Obtuse Case -->
+        <section>
+            <h2>Deriving the Area Formula: Obtuse Triangles</h2>
+            <div class="content">
+                <p><strong>Case 2: Obtuse Triangle</strong> (when angle C is greater than 90°)</p>
+
+                <div class="svg-container">
+                    <svg width="700" height="400" viewBox="0 0 700 400">
+                        <!-- Triangle ABC with obtuse angle at C -->
+                        <polygon points="100,320 600,320 180,100" fill="none" stroke="#1a5490" stroke-width="3"/>
+                        
+                        <!-- Extended base -->
+                        <line x1="600" y1="320" x2="180" y2="320" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
+                        
+                        <!-- Height from A to BC extended -->
+                        <line x1="180" y1="100" x2="180" y2="320" stroke="#c74440" stroke-width="2" stroke-dasharray="5,5"/>
+                        
+                        <!-- Right angle marker at D -->
+                        <path d="M 180,320 L 180,310 L 190,310 L 190,320" fill="none" stroke="#c74440" stroke-width="1.5"/>
+                        
+                        <!-- Vertices -->
+                        <circle cx="100" cy="320" r="4" fill="#1a5490"/>
+                        <circle cx="600" cy="320" r="4" fill="#1a5490"/>
+                        <circle cx="180" cy="100" r="4" fill="#1a5490"/>
+                        <circle cx="180" cy="320" r="4" fill="#c74440"/>
+                        
+                        <!-- Labels -->
+                        <text x="70" y="345" fill="#1a5490" font-size="28" font-weight="bold">B</text>
+                        <text x="615" y="345" fill="#1a5490" font-size="28" font-weight="bold">C</text>
+                        <text x="160" y="75" fill="#1a5490" font-size="28" font-weight="bold">A</text>
+                        <text x="185" y="345" fill="#c74440" font-size="24" font-weight="bold">D</text>
+                        
+                        <!-- Side labels -->
+                        <text x="120" y="195" fill="#2d70b3" font-size="24" font-weight="bold">c</text>
+                        <text x="400" y="195" fill="#2d70b3" font-size="24" font-weight="bold">b</text>
+                        <text x="340" y="350" fill="#2d70b3" font-size="24" font-weight="bold">a</text>
+                        
+                        <!-- Height h -->
+                        <text x="140" y="210" fill="#c74440" font-size="24" font-weight="bold">h</text>
+                        
+                        <!-- Obtuse angle C -->
+                        <path d="M 570,320 A 30,30 0 0,1 560,295" fill="none" stroke="#ff9800" stroke-width="2"/>
+                        <text x="545" y="295" fill="#ff9800" font-size="20" font-weight="bold">180°-C</text>
+                        
+                        <!-- Angle label -->
+                        <text x="520" y="340" fill="#ff9800" font-size="20">(obtuse)</text>
+                    </svg>
+                </div>
+
+                <div class="formula-box" style="text-align: left; padding: 30px;">
+                    <p><strong>Step 1:</strong> Area \(= \frac{1}{2}ah\) (same as before)</p>
+                    
+                    <p style="margin-top: 20px;"><strong>Step 2:</strong> In the right triangle ACD, the angle at C is now \((180° - C)\):</p>
+                    <p style="margin-left: 40px;">\[\sin(180° - C) = \frac{h}{b}\]</p>
+                    <p style="margin-left: 40px;">Therefore: \[h = b\sin(180° - C)\]</p>
+                    
+                    <p style="margin-top: 20px;"><strong>Step 3:</strong> But we know from supplementary angles that \(\sin(180° - C) = \sin C\)</p>
+                    <p style="margin-left: 40px;">So: \[h = b\sin C\]</p>
+                    
+                    <p style="margin-top: 20px;"><strong>Step 4:</strong> Substitute into the area formula:</p>
+                    <p style="margin-left: 40px; font-size: 1.3em; color: #c74440;">\[\text{Area} = \frac{1}{2}ab\sin C\]</p>
+                </div>
+
+                <div class="key-point">
+                    <p><strong>Amazing Result:</strong> The formula works for <strong>both</strong> acute and obtuse triangles!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 15: Area Formula Summary -->
+        <section>
+            <h2>Area of a Triangle Formula</h2>
+            <div class="content">
+                <div class="formula-box">
+                    <p><strong>Given two sides and the included angle:</strong></p>
+                    <p style="font-size: 1.4em; margin: 20px 0;">\[\text{Area} = \frac{1}{2}ab\sin C\]</p>
+                    <p>or equivalently:</p>
+                    <p style="font-size: 1.3em;">\[\text{Area} = \frac{1}{2}bc\sin A\]</p>
+                    <p style="font-size: 1.3em;">\[\text{Area} = \frac{1}{2}ac\sin B\]</p>
+                </div>
+
+                <div class="svg-container">
+                    <svg width="650" height="300" viewBox="0 0 650 300">
+                        <!-- Triangle showing the three variations -->
+                        <polygon points="100,250 550,250 250,80" fill="none" stroke="#1a5490" stroke-width="3"/>
+                        
+                        <!-- Vertices -->
+                        <circle cx="100" cy="250" r="4" fill="#1a5490"/>
+                        <circle cx="550" cy="250" r="4" fill="#1a5490"/>
+                        <circle cx="250" cy="80" r="4" fill="#1a5490"/>
+                        
+                        <!-- Labels -->
+                        <text x="70" y="275" fill="#1a5490" font-size="28" font-weight="bold">A</text>
+                        <text x="565" y="275" fill="#1a5490" font-size="28" font-weight="bold">B</text>
+                        <text x="230" y="60" fill="#1a5490" font-size="28" font-weight="bold">C</text>
+                        
+                        <!-- Side labels -->
+                        <text x="160" y="150" fill="#c74440" font-size="24" font-weight="bold">b</text>
+                        <text x="410" y="150" fill="#c74440" font-size="24" font-weight="bold">c</text>
+                        <text x="315" y="280" fill="#c74440" font-size="24" font-weight="bold">a</text>
+                        
+                        <!-- Angle markers -->
+                        <path d="M 130,250 A 30,30 0 0,0 118,230" fill="none" stroke="#ff9800" stroke-width="2"/>
+                        <text x="135" y="235" fill="#ff9800" font-size="22" font-weight="bold">A</text>
+                        
+                        <path d="M 520,250 A 30,30 0 0,1 532,230" fill="none" stroke="#ff9800" stroke-width="2"/>
+                        <text x="510" y="235" fill="#ff9800" font-size="22" font-weight="bold">B</text>
+                        
+                        <path d="M 235,110 A 30,30 0 0,1 265,110" fill="none" stroke="#ff9800" stroke-width="2"/>
+                        <text x="240" y="125" fill="#ff9800" font-size="22" font-weight="bold">C</text>
+                    </svg>
+                </div>
+
+                <div class="key-point">
+                    <p><strong>How to use this formula:</strong></p>
+                    <ol style="font-size: 1.1em;">
+                        <li>Identify the two sides you know</li>
+                        <li>Identify the angle <strong>between</strong> those two sides (the included angle)</li>
+                        <li>Multiply: \(\frac{1}{2} \times \text{side}_1 \times \text{side}_2 \times \sin(\text{included angle})\)</li>
+                    </ol>
+                </div>
+
+                <div class="definition">
+                    <p><strong>The Included Angle:</strong> The angle <strong>between</strong> two sides is called the <strong>included angle</strong>.</p>
+                    <p>For example, angle C is included between sides \(a\) and \(b\).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 16: Worked Example -->
+        <section>
+            <h2>Worked Example: Finding Area</h2>
+            <div class="content">
+                <div class="example-box">
+                    <p><strong>Example:</strong> Find the area of triangle ABC.</p>
+                    <div class="svg-container">
+                        <svg width="500" height="350" viewBox="0 0 500 350">
+                            <!-- Triangle -->
+                            <polygon points="100,300 450,300 280,100" fill="none" stroke="#1a5490" stroke-width="3"/>
+                            
+                            <!-- Vertices -->
+                            <circle cx="100" cy="300" r="4" fill="#1a5490"/>
+                            <circle cx="450" cy="300" r="4" fill="#1a5490"/>
+                            <circle cx="280" cy="100" r="4" fill="#1a5490"/>
+                            
+                            <!-- Labels -->
+                            <text x="70" y="325" fill="#1a5490" font-size="26" font-weight="bold">A</text>
+                            <text x="465" y="325" fill="#1a5490" font-size="26" font-weight="bold">C</text>
+                            <text x="260" y="80" fill="#1a5490" font-size="26" font-weight="bold">B</text>
+                            
+                            <!-- Side measurements -->
+                            <text x="165" y="185" fill="#c74440" font-size="24" font-weight="bold">15 cm</text>
+                            <text x="370" y="185" fill="#c74440" font-size="24" font-weight="bold">11 cm</text>
+                            
+                            <!-- Angle -->
+                            <path d="M 265,130 A 30,30 0 0,1 295,130" fill="none" stroke="#ff9800" stroke-width="2"/>
+                            <text x="265" y="155" fill="#ff9800" font-size="24" font-weight="bold">28°</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="formula-box" style="text-align: left; padding: 30px; background: #ffffff; border: 3px solid #2d70b3;">
+                    <p><strong>Solution:</strong></p>
+                    <p style="margin-top: 15px;"><strong>Step 1:</strong> Identify what we know</p>
+                    <p style="margin-left: 40px;">• We know sides: \(a = 15\) cm and \(c = 11\) cm</p>
+                    <p style="margin-left: 40px;">• The angle between them is \(B = 28°\)</p>
+                    
+                    <p style="margin-top: 20px;"><strong>Step 2:</strong> Choose the correct formula</p>
+                    <p style="margin-left: 40px;">Since we have sides \(a\) and \(c\) with included angle \(B\), we use:</p>
+                    <p style="margin-left: 40px; font-size: 1.2em;">\[\text{Area} = \frac{1}{2}ac\sin B\]</p>
+                    
+                    <p style="margin-top: 20px;"><strong>Step 3:</strong> Substitute the values</p>
+                    <p style="margin-left: 40px; font-size: 1.2em;">\[\text{Area} = \frac{1}{2} \times 15 \times 11 \times \sin 28°\]</p>
+                    
+                    <p style="margin-top: 20px;"><strong>Step 4:</strong> Calculate</p>
+                    <p style="margin-left: 40px; font-size: 1.2em;">\[\text{Area} = \frac{1}{2} \times 15 \times 11 \times 0.46947...\]</p>
+                    <p style="margin-left: 40px; font-size: 1.2em;">\[\text{Area} \approx 38.7 \text{ cm}^2\]</p>
+                </div>
+
+                <div class="key-point">
+                    <p><strong>Important:</strong> Make sure your calculator is in degree mode!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 17: Practice Questions - Area of Triangle -->
+        <section>
+            <h2>Practice: Area of Triangle (Exercise 8B)</h2>
+            <div class="content">
+                <h4>Question 1: Find the area of each triangle</h4>
+                
+                <div class="two-column">
+                    <div class="svg-container">
+                        <p><strong>a)</strong></p>
+                        <svg width="300" height="250" viewBox="0 0 300 250">
+                            <polygon points="50,200 250,200 150,50" fill="none" stroke="#1a5490" stroke-width="2.5"/>
+                            <circle cx="50" cy="200" r="3" fill="#1a5490"/>
+                            <circle cx="250" cy="200" r="3" fill="#1a5490"/>
+                            <circle cx="150" cy="50" r="3" fill="#1a5490"/>
+                            <text x="120" y="115" fill="#c74440" font-size="20" font-weight="bold">9 cm</text>
+                            <text x="185" y="115" fill="#c74440" font-size="20" font-weight="bold">10 cm</text>
+                            <path d="M 140,80 A 25,25 0 0,1 160,80" fill="none" stroke="#ff9800" stroke-width="2"/>
+                            <text x="140" y="105" fill="#ff9800" font-size="20" font-weight="bold">40°</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="svg-container">
+                        <p><strong>b)</strong></p>
+                        <svg width="300" height="250" viewBox="0 0 300 250">
+                            <polygon points="50,200 250,200 80,60" fill="none" stroke="#1a5490" stroke-width="2.5"/>
+                            <circle cx="50" cy="200" r="3" fill="#1a5490"/>
+                            <circle cx="250" cy="200" r="3" fill="#1a5490"/>
+                            <circle cx="80" cy="60" r="3" fill="#1a5490"/>
+                            <text x="45" y="120" fill="#c74440" font-size="20" font-weight="bold">25 km</text>
+                            <text x="120" y="230" fill="#c74440" font-size="20" font-weight="bold">31 km</text>
+                            <path d="M 75,90 A 25,25 0 0,1 62,84" fill="none" stroke="#ff9800" stroke-width="2"/>
+                            <text x="85" y="90" fill="#ff9800" font-size="20" font-weight="bold">82°</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="two-column" style="margin-top: 30px;">
+                    <div class="svg-container">
+                        <p><strong>c)</strong></p>
+                        <svg width="300" height="250" viewBox="0 0 300 250">
+                            <polygon points="50,200 250,200 50,50" fill="none" stroke="#1a5490" stroke-width="2.5"/>
+                            <circle cx="50" cy="200" r="3" fill="#1a5490"/>
+                            <circle cx="250" cy="200" r="3" fill="#1a5490"/>
+                            <circle cx="50" cy="50" r="3" fill="#1a5490"/>
+                            <text x="20" y="120" fill="#c74440" font-size="20" font-weight="bold">5 m</text>
+                            <text x="140" y="230" fill="#c74440" font-size="20" font-weight="bold">8 m</text>
+                            <path d="M 50,180 A 20,20 0 0,1 70,180" fill="none" stroke="#ff9800" stroke-width="2"/>
+                            <text x="65" y="175" fill="#ff9800" font-size="20" font-weight="bold">90°</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="svg-container">
+                        <p><strong>d)</strong></p>
+                        <svg width="300" height="250" viewBox="0 0 300 250">
+                            <polygon points="50,200 250,200 80,80" fill="none" stroke="#1a5490" stroke-width="2.5"/>
+                            <circle cx="50" cy="200" r="3" fill="#1a5490"/>
+                            <circle cx="250" cy="200" r="3" fill="#1a5490"/>
+                            <circle cx="80" cy="80" r="3" fill="#1a5490"/>
+                            <text x="30" y="130" fill="#c74440" font-size="20" font-weight="bold">6 cm</text>
+                            <text x="160" y="130" fill="#c74440" font-size="20" font-weight="bold">9.7 cm</text>
+                            <path d="M 75,110 A 25,25 0 0,1 92,98" fill="none" stroke="#ff9800" stroke-width="2"/>
+                            <text x="95" y="115" fill="#ff9800" font-size="20" font-weight="bold">140°</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 18: More Practice Questions -->
+        <section>
+            <h2>Practice: Area of Triangle (Exercise 8B)</h2>
+            <div class="content">
+                <div class="two-column">
+                    <div class="svg-container">
+                        <p><strong>e)</strong></p>
+                        <svg width="300" height="250" viewBox="0 0 300 250">
+                            <polygon points="100,200 250,200 100,70" fill="none" stroke="#1a5490" stroke-width="2.5"/>
+                            <circle cx="100" cy="200" r="3" fill="#1a5490"/>
+                            <circle cx="250" cy="200" r="3" fill="#1a5490"/>
+                            <circle cx="100" cy="70" r="3" fill="#1a5490"/>
+                            <text x="70" y="130" fill="#c74440" font-size="20" font-weight="bold">10.2 cm</text>
+                            <text x="160" y="120" fill="#c74440" font-size="20" font-weight="bold">6.4 cm</text>
+                            <path d="M 105,100 A 25,25 0 0,1 123,92" fill="none" stroke="#ff9800" stroke-width="2"/>
+                            <text x="130" y="105" fill="#ff9800" font-size="20" font-weight="bold">120°</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="svg-container">
+                        <p><strong>f)</strong></p>
+                        <svg width="300" height="250" viewBox="0 0 300 250">
+                            <polygon points="50,200 200,200 130,80" fill="none" stroke="#1a5490" stroke-width="2.5"/>
+                            <circle cx="50" cy="200" r="3" fill="#1a5490"/>
+                            <circle cx="200" cy="200" r="3" fill="#1a5490"/>
+                            <circle cx="130" cy="80" r="3" fill="#1a5490"/>
+                            <text x="70" y="130" fill="#c74440" font-size="20" font-weight="bold">13 m</text>
+                            <text x="165" y="130" fill="#c74440" font-size="20" font-weight="bold">15 m</text>
+                            <text x="110" y="230" fill="#c74440" font-size="20" font-weight="bold">8 m</text>
+                            <path d="M 120,110 A 25,25 0 0,1 140,110" fill="none" stroke="#ff9800" stroke-width="2"/>
+                            <text x="120" y="135" fill="#ff9800" font-size="20" font-weight="bold">60°</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 40px;">Question 2: Find the unknown side</h4>
+                <div class="svg-container">
+                    <svg width="400" height="300" viewBox="0 0 400 300">
+                        <polygon points="50,250 350,250 200,80" fill="none" stroke="#1a5490" stroke-width="2.5"/>
+                        <circle cx="50" cy="250" r="3" fill="#1a5490"/>
+                        <circle cx="350" cy="250" r="3" fill="#1a5490"/>
+                        <circle cx="200" cy="80" r="3" fill="#1a5490"/>
+                        <text x="20" y="275" fill="#1a5490" font-size="24" font-weight="bold">B</text>
+                        <text x="365" y="275" fill="#1a5490" font-size="24" font-weight="bold">C</text>
+                        <text x="180" y="60" fill="#1a5490" font-size="24" font-weight="bold">A</text>
+                        <text x="105" y="150" fill="#c74440" font-size="22" font-weight="bold">17 cm</text>
+                        <text x="220" y="275" fill="#c74440" font-size="22" font-weight="bold">x cm</text>
+                        <path d="M 70,250 A 20,20 0 0,0 60,233" fill="none" stroke="#ff9800" stroke-width="2"/>
+                        <text x="75" y="235" fill="#ff9800" font-size="22" font-weight="bold">68°</text>
+                        <text x="130" y="30" fill="#2d70b3" font-size="20">Area = 150 cm²</text>
+                    </svg>
+                </div>
+                <p>Triangle ABC has area 150 cm². Find the value of \(x\).</p>
+            </div>
+        </section>
+
+        <!-- Slide 19: Application Questions -->
+        <section>
+            <h2>Practice: Applications (Exercise 8B)</h2>
+            <div class="content">
+                <h4>Question 3: Special Triangles</h4>
+                <p><strong>a)</strong> Calculate the area of an isosceles triangle with equal sides of length 21 cm and an included angle of 49°.</p>
+                
+                <div class="svg-container">
+                    <svg width="400" height="300" viewBox="0 0 400 300">
+                        <polygon points="100,250 300,250 200,80" fill="none" stroke="#1a5490" stroke-width="2.5"/>
+                        <circle cx="100" cy="250" r="3" fill="#1a5490"/>
+                        <circle cx="300" cy="250" r="3" fill="#1a5490"/>
+                        <circle cx="200" cy="80" r="3" fill="#1a5490"/>
+                        <text x="120" y="150" fill="#c74440" font-size="22" font-weight="bold">21 cm</text>
+                        <text x="230" y="150" fill="#c74440" font-size="22" font-weight="bold">21 cm</text>
+                        <path d="M 190,110 A 25,25 0 0,1 210,110" fill="none" stroke="#ff9800" stroke-width="2"/>
+                        <text x="185" y="135" fill="#ff9800" font-size="22" font-weight="bold">49°</text>
+                    </svg>
+                </div>
+
+                <p style="margin-top: 30px;"><strong>b)</strong> Calculate the area of an equilateral triangle with sides of length 57 cm.</p>
+                <p style="margin-left: 40px; font-style: italic;">Hint: In an equilateral triangle, all angles are 60°</p>
+
+                <h4 style="margin-top: 40px;">Question 4: Parallelogram</h4>
+                <p>A parallelogram has two adjacent sides with lengths 4 cm and 6 cm respectively. If the included angle measures 52°, find the area of the parallelogram.</p>
+                <p style="margin-left: 40px; font-style: italic;">Hint: A parallelogram can be split into two congruent triangles</p>
+
+                <h4 style="margin-top: 30px;">Question 5: Rhombus</h4>
+                <p>A rhombus has sides of length 12 cm and an angle of 72°. Find its area.</p>
+                <p style="margin-left: 40px; font-style: italic;">Hint: A rhombus is a parallelogram with all sides equal</p>
+            </div>
+        </section>
+
+        <!-- Slide 20: Summary -->
+        <section>
+            <h2>Summary</h2>
+            <div class="content">
+                <h3 style="color: #1a5490;">The Unit Circle</h3>
+                <ul>
+                    <li>The unit circle has equation \(x^2 + y^2 = 1\)</li>
+                    <li>For any angle \(\theta\): \(P(\cos\theta, \sin\theta)\)</li>
+                    <li>Range: \(-1 \leq \cos\theta \leq 1\) and \(-1 \leq \sin\theta \leq 1\)</li>
+                    <li>Pythagorean identity: \(\cos^2\theta + \sin^2\theta = 1\)</li>
+                    <li>Supplementary angles:
+                        <ul>
+                            <li>\(\cos(180° - \theta) = -\cos\theta\)</li>
+                            <li>\(\sin(180° - \theta) = \sin\theta\)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3 style="color: #1a5490; margin-top: 40px;">Area of a Triangle</h3>
+                <div class="formula-box">
+                    <p>Given two sides and the included angle:</p>
+                    <p style="font-size: 1.4em; margin: 15px 0;">\[\text{Area} = \frac{1}{2}ab\sin C\]</p>
+                    <p>This formula works for <strong>any</strong> triangle (acute, obtuse, or right-angled)</p>
+                </div>
+
+                <div class="key-point">
+                    <p><strong>Next Steps:</strong></p>
+                    <p>Now that we can find areas of triangles when we know two sides and an included angle, we're ready to learn the <strong>Cosine Rule</strong> and <strong>Sine Rule</strong> which will help us find unknown sides and angles in non-right triangles!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
